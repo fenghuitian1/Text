@@ -1,18 +1,14 @@
-.DS_Store
-chileme-cli/node_modules
-chileme-sev/node_modules
 
-chileme-cli/dist
+chileme-sev/node_modules
+diancan.txt
+
+chileme-cli/src/assets/style/iconfont/demo_index.html
+chileme-cli/src/assets/style/iconfont/demo.css
+
 
 # local env files
 .env.local
 .env.*.local
-
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
 # Editor directories and files
 .idea
 .vscode
