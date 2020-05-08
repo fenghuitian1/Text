@@ -1,0 +1,58 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "495785",
+      "name": "报表",
+      "font_class": "04",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "521014",
+      "name": "测试辅助",
+      "font_class": "ceshifuzhu",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "741949",
+      "name": "退出 (5)",
+      "font_class": "tuichu5",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "845780",
+      "name": "钱 ",
+      "font_class": "qian",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "1008482",
+      "name": "交换",
+      "font_class": "jiaohuan",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "3703013",
+      "name": "库存账表",
+      "font_class": "navicon-kczb",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "7851947",
+      "name": "crown",
+      "font_class": "crown",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    }
+  ]
+}
