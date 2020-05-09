@@ -15,6 +15,12 @@ Vue.use(VueRouter)
     path: '/register',
     name: 'Register',
     component: () => import('../views/Register.vue')
+  },
+  //登录
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue')
   }
 ]
 
