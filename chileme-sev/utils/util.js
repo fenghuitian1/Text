@@ -12,9 +12,12 @@ const transCode = num=>{
 
 
 }
+//验证手机号的正则
+const regMobile = /[0-9]/
 
 module.exports={
     transTime,
     randomColor,
-    transCode
+    transCode,
+    regMobile
 }
