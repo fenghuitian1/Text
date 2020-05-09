@@ -11,6 +11,8 @@ router.get('/hello',async ctx =>{
 
 
 //用户接口
+router.post('/api/user/getTestCode', User.getTestCode)    //获取验证码接口
+
 router.post('/api/user/register', User.register)    //注册接口
 
 router.post('/api/user/register', User.login)       //登录接口
