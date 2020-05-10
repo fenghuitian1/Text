@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 
-
+//预注册的表
 const preRegist = new Schema({
     mobile:String,  //手机号
     testCode:String,    //验证码
