@@ -8,7 +8,21 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    children:[
+      //点餐
+      {
+        path:'chooseGoods',
+        name:'ChooseGoods',
+        component: ()=> import('../views/ChooseGoods.vue')
+      },
+      //库存管理
+      {
+        path:'stockManagement',
+        name:'StockManagement',
+        component: ()=> import('../views/StockManagement.vue')
+      },
+    ]
   },
   //注册
   {
