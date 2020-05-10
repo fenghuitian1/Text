@@ -15,7 +15,9 @@ router.post('/api/user/getTestCode', User.getTestCode)    //获取验证码接�
 
 router.post('/api/user/register', User.register)    //注册接口
 
-router.post('/api/user/register', User.login)       //登录接口
+router.post('/api/user/collectInfo', User.collectInfo)    //完善用户信息接口
+
+router.post('/api/user/login', User.login)       //登录接口
 
 
 //商品接口
