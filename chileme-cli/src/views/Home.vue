@@ -1,7 +1,16 @@
 <template>
   <div class="home">
     <el-row>
-      <el-col :span="2"><div class="grid-left grid-content bg-purple-dark"></div></el-col>
+      <el-col :span="2">
+        <div class="grid-left grid-content bg-purple-dark">
+          <div class="iconfont">&#xe642;<i>收银</i></div>
+          <div class="iconfont">&#xe616;<i>会员</i></div>
+          <div class="iconfont">&#xe65f;<i>库存</i></div>
+          <div class="iconfont">&#xe64c;<i>报表</i></div>
+          <div class="iconfont">&#xe600;<i>辅助</i></div>
+          <div class="iconfont">&#xe650;<i>退出</i></div>
+        </div>
+      </el-col>
       <el-col :span="22"><div class="grid-right grid-content bg-purple-dark"> <router-view/></div></el-col>
     </el-row>
   </div>
@@ -23,7 +32,25 @@ export default {
 .home{
   @include init;
   .grid-left{
-    background: rgb(53, 57, 235);
+    display: flex;
+    flex-direction: column;
+    background: rgb(13, 127, 209);
+    color: #ffffff;
+    .iconfont{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 34px;
+      i{
+        font-size: 10px;
+      }
+      &:hover{
+        background: #e04747;
+        cursor: pointer;
+      }
+    }
   }
   .el-row,.el-col,.grid-left,grid-right{
     height: 100%;
