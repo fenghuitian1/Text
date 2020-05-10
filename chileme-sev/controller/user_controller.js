@@ -155,6 +155,8 @@ const register = async ctx =>{
                         msg:'注册失败'
                     }
                 })
+                 // 注册成功后，删除预注册表中的信息
+                await PreRegist.deleteOne({mobile:data.mobile})
             }else{
                 //不匹配
                 ctx.body={
@@ -213,6 +215,7 @@ const collectInfo = async ctx=>{
         return
     }
     //4.更新数据库中的数据
+    
 }
 
 //登录
