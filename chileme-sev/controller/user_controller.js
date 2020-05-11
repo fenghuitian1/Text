@@ -42,7 +42,7 @@ const getTestCode = async (ctx,next)=>{
     const testCode = Util.testCode()
     // console.log(testCode)
     //>2是否首次获取验证码
-    let testCodeRes = await PreRegiste.findOne({mobile:data.mobile})
+    let testCodeRes = await PreRegist.findOne({mobile:data.mobile})
     if(!!testCodeRes){  //非首次获取验证码
         await PreRegist.update({mobile:data.mobile},{$set:{
             testCode:testCode,    //验证码
