@@ -72,10 +72,10 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           this.Axios({
-            methods: "post",
+            method: "post",
             url: "/api/user/getTestCode",
             data: {
-              mobile: this.mobile
+              mobile: this.form.mobile
             }
           })
             .then(data => {
@@ -83,7 +83,7 @@ export default {
             })
             .catch(err => {
               console.log(err);
-            });
+            })
         } else {
           console.log("error submit!!");
           return false;

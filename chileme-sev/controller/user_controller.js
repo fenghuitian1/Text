@@ -15,7 +15,7 @@ const getTestCode = async (ctx,next)=>{
     //获取请求信息
     let data = ctx.request.body
     //1.验证手机号是否合法    不合法则提示手机号输入有问题    
-    if(!Util.regMobile,test(data.mobile)){   //手机号不合法
+    if(!Util.regMobile.test(data.mobile)){   //手机号不合法
         ctx.body = {
             code:200,
             flag:false,
@@ -104,7 +104,7 @@ const register = async ctx =>{
     //获取post请求数据
     let data = ctx.request.body
     //验证手机号是否合法    不合法则提示手机号输入有问题    
-    if(!Util.regMobile,test(data.mobile)){   //手机号不合法
+    if(!Util.regMobile.test(data.mobile)){   //手机号不合法
         ctx.body = {
             code:200,
             flag:false,
@@ -156,7 +156,7 @@ const register = async ctx =>{
                     }
                 })
                  // 注册成功后，删除预注册表中的信息
-                await PreRegist.deleteOne({mobile:data.mobile})
+                // await PreRegist.deleteOne({mobile:data.mobile})
             }else{
                 //不匹配
                 ctx.body={
@@ -195,7 +195,7 @@ const collectInfo = async ctx=>{
         return
     }
     //2.性别是否合法
-    if(data.sex !== 0 && data.sex !== 1){
+    if(data.sex !== '0' && data.sex !== '1'){
         ctx.body={
             code:200,
             flag:false,
@@ -224,7 +224,7 @@ const login = async ctx =>{
     const data = ctx.request.body
     //2.去数据库中查找该用户   若用户不存在提示用户先去注册   {code:200,msg:'用户未注册，flag:1'}
     //判断手机号是否合法
-    if(!Util.regMobile,test(ctx.mobile)){   //手机号不合法
+    if(!Util.regMobile.test(data.mobile)){   //手机号不合法
         ctx.body = {
             code:200,
             flag:false,
