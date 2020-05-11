@@ -54,7 +54,7 @@ export default {
       align-items: center;
       font-size: 34px;
       i{
-        font-size: 10px;
+        font-size: 14px;
       }
       &:hover{
         background: #e04747;
