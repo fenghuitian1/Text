@@ -15,7 +15,7 @@ const transCode = num=>{
 //4.正则
 
 const regMobile = /^1[3456789]\d{9}$/   //验证手机号的正则
-const regPassword = /^[a-zA-Z0-9]{6-12}$/  //验证密码  大小写字母或者数字 组成的长度在6-12之间
+const regPassword = /^(\w){6,20}$/  //验证密码  大小写字母或者数字 组成的长度在6-12之间
 const regUsername = /^[a-zA-z0-9\u4e00-\u9fa5]{1,20}$/   //验证用户名的正则
 
 //5.随机生成六位验证码
@@ -30,7 +30,7 @@ const testCode = ()=>{
 				let  rand5 = Math.floor((Math.random()*62));
 				let  rand6 = Math.floor((Math.random()*62));
                 // alert("验证码为: " + " " + arr[rand1] + " " + arr[rand2] + " " +  arr[rand3] + " "  + arr[rand4] + " "  + arr[rand5] + " "  + arr[rand6])  ;
-                return `${rand1}${rand2}${rand3}${rand4}${rand5}${rand6}`
+                return `${arr[rand1]}${arr[rand2]}${arr[rand3]}${arr[rand4]}${arr[rand5]}${arr[rand6]}`
 }
 
 

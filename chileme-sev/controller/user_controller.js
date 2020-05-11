@@ -92,7 +92,7 @@ const getTestCode = async (ctx,next)=>{
                 code:200,
                 flag:false,
                 type:'error',
-                msg:'获取成功',
+                msg:'获取失败',
             }
         })
     }
@@ -176,8 +176,6 @@ const register = async ctx =>{
             msg:'请先获取验证码'
         }
     }
-    
-    ctx.body = 'register'
 }
 
 //完善用户信息
@@ -215,7 +213,25 @@ const collectInfo = async ctx=>{
         return
     }
     //4.更新数据库中的数据
-    
+    await User.updateOne({mobile:data.mobile},{$set:{
+        username:data.username,
+        sex:data.sex,
+        password:data.password
+    }}).then(data => {
+        ctx.body ={
+            code:200,
+            flag:'true',
+            type:'success',
+            msg:'注册成功'
+        }
+    }).catch(err => {
+        ctx.body ={
+            code:200,
+            flag:'false',
+            type:'error',
+            msg:'注册失败'
+        }
+    })
 }
 
 //登录
