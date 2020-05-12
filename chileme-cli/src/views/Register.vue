@@ -39,10 +39,9 @@
       </el-form>
     </div>
     <el-dialog title="完善信息" :visible.sync="dialogFormVisible" :show-close="false">
-      <el-form :model="userform" label-width="100px">
+      <el-form :model="userform" label-width="100px" ref="Userform">
         <el-form-item
           label="用户名"
-          ref="Userform"
           prop="username"
           :rules="[
                     { required: true, message: '用户名不能为空'},
@@ -112,12 +111,10 @@ export default {
             data: {
               mobile: this.form.mobile
             }
-          })
-            .then(data => {
+          }).then(data => {
               console.log(data);
               this.form.testCode = data.data.data.testCode
-            })
-            .catch(err => {
+            }).catch(err => {
               console.log(err);
             });
         } else {
@@ -128,41 +125,38 @@ export default {
     },
     //提交注册表单方法
     registerHandle(formName) {
-      this.$refs[formName].validate(valid => {
-        if (valid) {
-          if (!this.form.testCode) {
-            this.$notify({
-              title: "tip",
-              message: "请输入验证码"
+         this.$refs[formName].validate((valid) => {
+                if (valid) {
+                    if(!this.form.testCode){
+                        this.$notify({
+                            title: 'tip',
+                            message: '请输入验证码'
+                        });
+                        return false
+                    }
+                    this.Axios({
+                        method:'POST',
+                        url:'/api/user/register',
+                        data:{
+                            mobile:this.form.mobile,
+                            testCode:this.form.testCode
+                        }
+                    }).then(data => {
+                        console.log(data)
+                        this.dialogFormVisible = true
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                    
+                } else {
+                    console.log('error submit!!')
+                    return false;
+                }
             });
-            return false;
-          }
-          if (valid) {
-            this.Axios({
-              method: "post",
-              url: "/api/user/register",
-              data: {
-                mobile: this.form.mobile,
-                testCode: this.form.testCode
-              }
-            })
-              .then(data => {
-                console.log(data);
-                this.dialogFormVisible = true;
-              })
-              .catch(err => {
-                console.log(err);
-              });
-          } else {
-            console.log("error submit!!");
-            return false;
-          }
-        }
-      });
     },
     //提交用户信息
     submitUserDate(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
             this.Axios({
               method: "post",
@@ -173,13 +167,12 @@ export default {
                 sex:this.userform.sex,
                 password:this.userform.password
               }
-            })
-            .then(data => {
+            }).then(data => {
               console.log(data);
               //注册成功  跳转登录
+              console.log('111')
               this.$router.push('/login')
-            })
-            .catch(err => {
+            }).catch(err => {
               console.log(err);
             });
         } else {
