@@ -20,7 +20,7 @@ const goods = new Schema({
     price:Number,	
     num:Number,		
     desc:String,		
-    reta:Number,		
+    rate:Number,		
     type:String,		
     isOff:Boolean,	
     percent:Number,	
@@ -30,4 +30,4 @@ const goods = new Schema({
 })
 
 
-module.exports = mongoose.module("Goods",goods)
+module.exports = mongoose.model("Goods",goods)
