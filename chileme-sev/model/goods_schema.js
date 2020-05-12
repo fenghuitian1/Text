@@ -1,4 +1,5 @@
 // 商品表
+//goodid        商品id          Number
 // goodname		商品名			String
 // price		商品价格		Number
 // num		    商品数量		Number
