@@ -1,6 +1,6 @@
 <template>
   <div class="stockManagement">
-    <el-row>
+    <el-row :gutter="20">
       <el-col :span="6">
         <div class="stockForm">
           <el-form ref="form" :model="form" label-width="80px">
@@ -68,6 +68,7 @@
           </el-form>
         </div>
       </el-col>
+      <!-- 右侧订单内容 -->
       <el-col :span="18">
         <div class="stockTable">
             <el-table 
@@ -111,9 +112,32 @@ export default {
         material: [],
         tast: "" //偏辣，清单，偏甜
       },
+      //材料
+      material:[
+        {id:1,name:'西红柿',code:'tomoto'},
+        {id:2,name:'牛肉',code:'beef'},
+        {id:3,name:'鸡肉',code:'chicken'},
+        {id:4,name:'猪肉',code:'pork'},
+        {id:5,name:'白菜',code:'carbage'},
+        {id:6,name:'土豆',code:'potato'}
+      ],
       //table
       tableData: []
     };
+  },
+  method:{
+    //提交数据
+    submitHandle(){
+
+    },
+    //重置表单
+    resetHandle(formName){
+      
+    },
+    //更新table数据的方法
+    getData(){
+      
+    }
   }
 };
 </script>
