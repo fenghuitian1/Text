@@ -11,7 +11,7 @@
           <div class="iconfont">&#xe650;<i>退出</i></div>
         </div>
       </el-col>
-      <el-col :span="22"><div class="grid-right grid-content bg-purple-dark"> <router-view/></div></el-col>
+      <el-col :span="23"><div class="grid-right grid-content bg-purple-dark"> <router-view/></div></el-col>
     </el-row>
   </div>
 </template>
@@ -33,14 +33,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@mixin init{
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
 .home{
-  @include init;
+  height: 100%;
   .grid-left{
     display: flex;
     flex-direction: column;
@@ -62,7 +56,7 @@ export default {
       }
     }
   }
-  .el-row,.el-col,.grid-left,grid-right{
+  .el-row,.el-col,.grid-left,.grid-right{
     height: 100%;
   }
 }
