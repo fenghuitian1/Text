@@ -12,7 +12,7 @@ const  Schema = mongoose.Schema
 const user = new Schema({
     username:String,
     mobile:String,
-    passwo:String,
+    password:String,
     sex:Number,
     create:Number,
 })

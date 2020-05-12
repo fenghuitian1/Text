@@ -70,13 +70,13 @@ const getTestCode = async (ctx,next)=>{
 
     }else{     //首次获取验证码
         let preRegist = new PreRegist({
-            mobile:data.mobile,  //手机号
-            testCode:testCode,    //验证码
-            createDate:new Date().getTime,  //发送验证码的时间
-            deadDate:new Date().getTime + 1800000 ,    //验证码过期时间(30分钟时效)
+            mobile: data.mobile, // 手机号
+            testCode: testCode, //验证码
+            createDate: new Date().getTime(), // 发送验证码的时间
+            deadDate: new Date().getTime()+ 1800000, //验证码过期时间(30分钟时效)
         })
-        await preRegist.save().then(data=>{
-            //4.发送验证码
+        await preRegist.save().then(data => {
+            // 4.发送验证码
             ctx.body = {
                 code:200,
                 flag:true,
@@ -92,7 +92,7 @@ const getTestCode = async (ctx,next)=>{
                 code:200,
                 flag:false,
                 type:'error',
-                msg:'获取失败',
+                msg:'获取失败'
             }
         })
     }
@@ -133,7 +133,7 @@ const register = async ctx =>{
                 let user = new User({
                     username:'',
                     mobile:data.mobile,
-                    passwo:'',
+                    password:'',
                     sex:3,
                     create:new Date().getTime()
                 })
@@ -181,7 +181,6 @@ const register = async ctx =>{
 //完善用户信息
 const collectInfo = async ctx=>{
     const data = ctx.request.body
-
     //1.用户名是否合法
     if(!Util.regUsername.test(data.username)){
         ctx.body={
@@ -229,7 +228,7 @@ const collectInfo = async ctx=>{
             code:200,
             flag:'false',
             type:'error',
-            msg:'注册失败'
+            msg:'注册成功'
         }
     })
 }
@@ -252,7 +251,9 @@ const login = async ctx =>{
     let res = await User.findOne({mobile:data.mobile})
     if(!!res){  //在数据库中找到该用户的信息
         //3.校验手机号和密码是否匹配  不匹配提示错误    {code:200,msg:'密码错误',flag:2}
-        if(data.password === res.password){ // 若两个值匹配  则返回登录成功
+        if(data.password === res.password){
+            // 若两个值匹配  则返回登录成功
+            ctx.cookies.set('user',res.mobile)
             ctx.body = {
                 code:200,
                 flag:true,
@@ -267,7 +268,6 @@ const login = async ctx =>{
                 msg:'密码错误'
             }
         }
-        
     }else{//在数据库中没有找到该用户的信息
         ctx.body = {
             code:200,
@@ -276,8 +276,6 @@ const login = async ctx =>{
             msg:'该手机号未注册'
         }
     }
-  
-    ctx.body = 'login'
 }
 
 

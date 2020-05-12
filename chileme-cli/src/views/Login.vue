@@ -1,33 +1,29 @@
 <template>
     <div class="login">
         <div class="inner">
-      <div class="el-icon-s-shop"></div>
-      <el-form :model="form" ref="Form" label-width="100px">
-        <!--手机号-->
-        <el-form-item
-            label="手机号"
-            prop="mobeli"
-            :rules="[
-                    { required: true, message: '手机号不能为空'},
-                    { type: 'number', message: '手机号必须为数字值'}
-                ]"
-        >
-          <el-input type="text" v-model.number="form.mobeli" autocomplete="off"></el-input>
-        </el-form-item>
-        <!-- 验证码 -->
-        <el-form-item
-            label="密码" 
-            prop="password"
-        >
-          <el-input type="text" v-model="form.password" autocomplete="off"></el-input>
-        </el-form-item>
-        <!-- 按钮 -->
-        <el-form-item>
-          <el-button type="primary" @click="LoginHandle">登录</el-button>
-          <el-button @click="resetForm('Form')">重置</el-button>
-        </el-form-item>
-      </el-form>
-    </div>
+            <div class="el-icon-s-shop"></div>
+            <el-form :model="form" ref="Form" label-width="100px">
+                <!--手机号-->
+                <el-form-item
+                    label="手机号"
+                    prop="mobile"
+                >
+                <el-input type="text" v-model.number="form.mobile" autocomplete="off"></el-input>
+                </el-form-item>
+                <!-- 验证码 -->
+                <el-form-item
+                    label="密码" 
+                    prop="password"
+                >
+                <el-input type="password" v-model="form.password" autocomplete="off"></el-input>
+                </el-form-item>
+                <!-- 按钮 -->
+                <el-form-item>
+                <el-button type="primary" @click="loginHandle">登录</el-button>
+                <el-button @click="resetForm('Form')">重置</el-button>
+                </el-form-item>
+            </el-form>
+        </div>
     </div>
 </template>
 
@@ -36,18 +32,31 @@ export default {
     data(){
         return{
             form:{
-                mobeli:'',
+                mobile:'',
                 password:''
             }
         }
     },
     methods:{
-        loginHandle(){
-
+       loginHandle(){
+            this.Axios({
+                method:'POST',
+                url:'/api/user/login',
+                data:{
+                    mobile:this.form.mobile,
+                    password:this.form.password
+                }
+            }).then(data => {
+                console.log(data)
+                if(data.data.flag) this.$router.push('/chooseGoods')
+                else this.$message.error(`${data.data.msg}`)
+                
+            }).catch(err => {
+                this.$message.error('登陆失败请稍后再试')
+            })
         },
-        //重置按钮
-        resetForm(formName) {
-             this.$refs[formName].resetFields();
+        resetForm(formName) {//重置按钮
+            this.$refs[formName].resetFields();
         }
     }
 }
