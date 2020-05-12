@@ -170,7 +170,6 @@ export default {
             }).then(data => {
               console.log(data);
               //注册成功  跳转登录
-              console.log('111')
               this.$router.push('/login')
             }).catch(err => {
               console.log(err);
