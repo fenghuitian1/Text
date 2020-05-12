@@ -9,7 +9,12 @@ const koaCars = require('koa-cors') //引入koa-cors插件
 
 
 //创建服务器连接
-mongoose.connect(cfg.path)
+mongoose.connect(cfg.path,
+    {
+        useNewUrlParser:true,
+        useUnifiedTopology:true
+    }
+)
 mongoose.connection.on('error',()=>{
     console.log('服务器连接错误')
 })
