@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <el-row>
-      <el-col :span="2">
+      <el-col :span="1">
         <div class="grid-left grid-content bg-purple-dark">
           <div class="iconfont" @click="jumpTo('/chooseGoods')" >&#xe642;<i>点餐</i></div>
           <div class="iconfont">&#xe616;<i>会员</i></div>
