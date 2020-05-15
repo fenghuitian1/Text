@@ -143,18 +143,18 @@ export default {
     //重置表单
     resetHandle(formName){
       this.form = { 
-                goodname :'', 
-                price    :'',  
-                num      :'',  
-                desc     :'',  
-                rate     :'',  // 3-5
-                type     :'',  //食品:food, 饮料:drink, 甜品:sweet, 套餐:combo
-                isOff    :'',  // true/false       
-                percent  :'',  // 2.5 --- 9.1
-                itemType :'',  //特色菜:special、下酒菜:cool 汤羹:soup、主食:normal、 方便菜肴:fast)
-                material :[],  
-                tast     :'',  //偏辣，清单，偏甜 
-            }
+        goodname :'', 
+        price    :'',  
+        num      :'',  
+        desc     :'',  
+        rate     :'',  // 3-5
+        type     :'',  //食品:food, 饮料:drink, 甜品:sweet, 套餐:combo
+        isOff    :'',  // true/false       
+        percent  :'',  // 2.5 --- 9.1
+        itemType :'',  //特色菜:special、下酒菜:cool 汤羹:soup、主食:normal、 方便菜肴:fast)
+        material :[],  
+        tast     :'',  //偏辣，清单，偏甜 
+      }
     },
     //更新table数据的方法
     getData(){
